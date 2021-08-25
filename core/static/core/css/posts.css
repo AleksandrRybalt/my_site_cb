@@ -1,0 +1,54 @@
+main{margin-top: 20px; max-width: 75%}
+
+ul.list-posts {
+	list-style: none;
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+}
+ul.list-posts li {
+	border-bottom: 1px solid #ccc;
+}
+
+div.panel {
+    background: #eee;
+    padding: 5px 10px 5px 10px;
+    overflow: hidden;
+}
+div.panel p.category {
+    margin: 0;
+    float: left;
+}
+div.panel p.date {
+    margin: 0;
+    float: right;
+}
+
+img.posts-img {
+	max-width: 250px;
+	height: auto;
+	float: left;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+.post-content{
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.clear {overflow: hidden; padding-bottom: 10px;}
+
+.btn-post {float: right;}
+.add {width: 20%}
+
+.add a:hover, .btn-post a:hover{
+	text-decoration: none;
+}
+
+.add a, .btn-post a{
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}

@@ -1,0 +1,17 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/posts.css' %}">{% endblock %}
+
+{% block content %}
+
+<div class="post-content">
+    <h3 align="center">{{post.title}}</h3>
+
+    {% if post.image %}
+        <p><img class="posts-img" src="{{post.image.url}}"></p>
+    {% endif %}
+
+    {{post.content|linebreaks}}
+</div>
+{% endblock %}

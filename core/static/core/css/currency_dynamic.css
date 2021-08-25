@@ -1,0 +1,12 @@
+main{margin-top: 50px; max-width: 77%;}
+
+form{
+    max-width: 60%;
+    margin-left: 20%;
+}
+
+.form_text{font-size: 18px;}
+
+.form_title{font-size: 20px;}
+
+body .result{font-size: 20px;}

@@ -1,0 +1,10 @@
+main{margin-top: 50px;}
+
+.login-input{margin-left: 40px; width: 50%;}
+.pass-input{margin-left: 30px; width: 50%;}
+
+
+form{
+    max-width: 50%;
+    margin-right: 20%;
+}

@@ -1,0 +1,22 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block title %}Курс валют{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/add_post.css' %}">{% endblock %}
+
+{% block content %}
+
+	<div>
+		<p class="form_title" align="center">Добавить пост</p>
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% for i in form %}
+            <p><label class="form-label" for="{{ i.id_for_label}}">{{i.label}}: </label>{{ i }}</p>
+				<div class="form-error">{{ i.errors }}</div>
+			{% endfor %}
+			<div align="center"><button class="btn btn-success" type="submit">Добавить</button></div>
+		</form><br>
+	</div>
+
+{% endblock %}

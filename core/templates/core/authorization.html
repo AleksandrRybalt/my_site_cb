@@ -1,0 +1,21 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/auth.css' %}">{% endblock %}
+
+{% block content %}
+    <div align="center">
+		<form method="post">
+			<p class="form_title" align="center">Авторизация</p>
+			{% csrf_token %}
+			<div class="form-error">{{ form.non_field_errors }}</div>
+			{% for i in form %}
+			<p align="center"><label class="form-label" for="{{ i.id_for_label }}">{{ i.label }}: </label>{{ i }}</p>
+				<div class="form-error">{{ i.errors }}</div>
+			{% endfor %}
+			<div align="center"><button class="btn btn-success" type="submit">Авторизоваться</button></div>
+		</form>
+	</div>
+{% endblock %}

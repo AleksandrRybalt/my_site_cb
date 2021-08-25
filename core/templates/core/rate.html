@@ -1,0 +1,23 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block title %}Курс валют{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/rate.css' %}">{% endblock %}
+
+{% block content %}
+
+	<div>
+		<p class="form_title" align="center">Выберете валюту и дату, на которую вы хотите узнать курс</p>
+		<form method="post">
+			{% csrf_token %}
+			{% for i in form %}
+				<p>{{ i }}</p>
+				<div class="form-error">{{ i.errors }}</div>
+			{% endfor %}
+			<div align="center"><button class="btn btn-success" type="submit">Показать</button></div>
+		</form><br>
+		<p class="result" align="center">{{ result }}</p>
+	</div>
+
+{% endblock %}

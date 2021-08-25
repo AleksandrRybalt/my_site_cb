@@ -1,0 +1,22 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block title %}Динамика драгметаллов{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/precious_metals.css' %}">{% endblock %}
+
+{% block content %}
+    <div>
+		<p class="form_title" align="center">Выберете металл и даты</p>
+		<form method="post">
+			{% csrf_token %}
+			{% for i in form %}
+				<p>{{ i }}</p>
+				<div class="form-error">{{ i.errors }}</div>
+			{% endfor %}
+			<div align="center"><button class="btn btn-success" type="submit">Показать</button><br></div>
+		</form><br>
+		<p class="result" align="center">{{ text }}</p>
+		{{ result }}
+	</div>
+{% endblock %}

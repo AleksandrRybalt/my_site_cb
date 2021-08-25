@@ -1,0 +1,38 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block title %}Курс валют{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/posts.css' %}">{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <button class="btn btn-success add" type="button"><a href="{% url 'add_post' %}">Добавить статью</a></button>
+{% endif %}
+
+
+<ul class="list-posts">
+
+    {% for p in posts %}
+        <li>
+            <div class="panel">
+                <p class="category">Категория: {{p.cat}}</p>
+	            <p class="date">Дата: {{p.time_update|date:"d-m-Y H:i:s"}}</p>
+            </div>
+
+            <div class="post-content">
+            {% if p.image %}
+                <p><img class="posts-img" src="{{p.image.url}}"></p>
+            {% endif %}
+            <h3>{{p.title}}</h3>
+
+            {{p.content|linebreaks|truncatewords:60}}
+
+            </div>
+
+            <div class="clear"><button class="btn btn-success btn-post" type="button"><a href="{{ p.get_absolute_url }}">Читать полностью</a></button></div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

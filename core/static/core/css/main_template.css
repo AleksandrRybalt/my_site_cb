@@ -1,0 +1,100 @@
+html {height: 100%;}
+
+body{
+	background: #E8E8E8;
+	margin-left: 50px;
+	margin-right: 50px;
+	height: 100%;
+}
+
+main {margin-top: 20px;}
+
+.my_navbar {
+	margin-top: 20px;
+	max-width: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	background: #70b193;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.my_navbar div{margin-top: 18px;}
+
+.my_navbar .logo{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.my_navbar .navbar_link a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.my_navbar li{
+	list-style: none;
+	padding-left: 0px;
+}
+
+.my_navbar .navbar_link a:hover, .my_navbar .navbar_link li:hover {
+	text-decoration: none;
+	transform: scale(1.05);
+}
+
+.dropdown-toggle{background: #70b193; border-color: #70b193; font-size: 18px; font-weight: bold; margin-bottom: 35px;}
+.dropdown-toggle:hover { background: #70b193; transform: scale(1.05); border-color: #70b193;}
+.dropdown-toggle:focus { background: #70b193; border-color: #70b193;}
+
+.navbar_link .input-group {margin-bottom: 35px;}
+
+.my_navbar .registration {font-size: 14px;}
+.navbar_link .user_name {font-size: 26px; text-transform: uppercase;}
+
+
+aside{
+	height: 100vh;
+	margin-top: 20px;
+	float: right;
+	background: #70b193;
+	width: 20%;
+	padding: 2.5%;
+	color: #fff;
+	border: 3px solid #778899;
+}
+
+.right_panel ul{
+	list-style: none;
+	padding-left: 0px;
+}
+
+
+
+.pages-list {
+	text-align: center;
+	margin-right: 20%;
+	margin-top: 20px;
+}
+.pages-list ul {
+	padding: 0;
+	list-style: none;
+}
+.pages-list ul li {
+	display: inline-block;
+}
+.pages-list a {
+	color: #70b193;
+	text-decoration: none;
+
+}
+.pages-list .page-num, .selected-page-num {
+	width: 35px;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+
+
+
+
+

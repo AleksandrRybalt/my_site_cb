@@ -1,0 +1,23 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block title %}Организация по БИК{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/bik.css' %}">{% endblock %}
+
+{% block content %}
+
+	<div>
+		<p class="form_title" align="center">Чтобы узнать наименование кредитной организации, введите ее номер БИК</p>
+		<form method="post">
+			{% csrf_token %}
+			{% for i in form %}
+				<p>{{ i }}</p>
+				<div class="form-error">{{ i.errors }}</div>
+			{% endfor %}
+			<div align="center"><button class="btn btn-success" type="submit">Показать</button></div>
+		</form><br>
+		<p class="result" align="center">{{ result }}</p>
+	</div>
+
+{% endblock %}
