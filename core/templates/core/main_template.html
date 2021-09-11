@@ -20,9 +20,7 @@
 			<div class="col-2 logo">
 				<center><img src="{% static 'core/images/logo.png' %}" alt="Logo" width="200" height="50" align="middle"></center>
 			</div>
-			<div class="col navbar_link">
-				<a href="{% url 'home' %}"><li><p align="center">Главная</p></li></a>
-			</div>
+
 			<div class="col navbar_link">
 				<a href="{% url 'posts' %}"><li><p align="center">Публикации</p></li></a>
 			</div>
@@ -40,7 +38,7 @@
 				</div>
 			</div>
 			<div class="col navbar_link">
-				<a href="#"><li><p align="center">О нас</p></li></a>
+				<a href="{% url 'about_us' %}"><li><p align="center">О нас</p></li></a>
 			</div>
 			<div class="col-3 navbar_link">
 				<div class="input-group">
@@ -68,6 +66,12 @@
 			<li>Доллар - {{ usd }}</li>
 			<li>Евро - {{ eur }}</li>
 		</ul>
+		<br>
+		<h4>Категории:</h4>
+		<br>
+		{% for c in categories %}
+				<li class="links"><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li><br>
+		{% endfor %}
 	</aside>
 
 	<main>

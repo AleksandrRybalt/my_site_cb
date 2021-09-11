@@ -1,0 +1,15 @@
+{% extends 'core/main_template.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'core/css/main_template.css' %}">{% endblock %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h3 align="center">О нас</h3>
+	<p>
+        Данный проект был создан в учебных целях, чтобы научиться использовать фреймворк Django,
+        а также поработать с API других сайтов (в данном случае с открытым API Центрального Банка России).
+        Также в меня, как разработчика, интересовала серверная часть разработки, а не визуальная.
+    </p>
+{% endblock %}

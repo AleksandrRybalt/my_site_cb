@@ -6,9 +6,12 @@ import plotly
 import plotly.graph_objs as plt
 from plotly.offline import plot
 from django.utils.safestring import mark_safe
+from .models import CategoryModel
 
 
 def rate_now(data):
+    categories = CategoryModel.objects.all()
+    data['categories'] = categories
     date = str(dt.today()).split('-')
     date = date[2] + '/' + date[1] + '/' + date[0]
     try:
@@ -21,10 +24,12 @@ def rate_now(data):
 
 
 class DataMixin:
-    paginate_by = 10
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        categories = CategoryModel.objects.all()
+        context['categories'] = categories
         today_rate = self.get_today_rate()
         return dict(list(context.items()) + list(today_rate.items()))
 

@@ -67,6 +67,20 @@ aside{
 	list-style: none;
 	padding-left: 0px;
 }
+.right_panel a{
+    color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+.right_panel li{
+	list-style: none;
+	padding-left: 0px;
+}
+.right_panel a:hover, .right_panel .links:hover {
+	text-decoration: none;
+	transform: scale(1.05);
+}
 
 
 

@@ -6,12 +6,10 @@ import requests
 from bs4 import BeautifulSoup
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
-from django.views.generic.base import View
 from django.views.generic.edit import CreateView, FormView
 from datetime import date as dt
-from . import models
 from .forms import *
-from .utils import DataMixin
+from .utils import DataMixin, rate_now
 
 
 class Posts(DataMixin, ListView):
@@ -36,24 +34,14 @@ class Post(DataMixin, DetailView):
     context_object_name = 'post'
 
 
-
-
-
-
 class Category(DataMixin, ListView):
     model = models.PostsModel
     template_name = 'core/posts.html'
-    context_object_name = 'posts'
     slug_url_kwarg = 'category_slug'
+    context_object_name = 'posts'
 
     def get_queryset(self):
         return self.model.objects.filter(category__slug=self.kwargs['category_slug'], is_published=True)
-
-
-
-
-
-
 
 
 class RegisterUser(DataMixin, CreateView):
@@ -124,14 +112,11 @@ class PreciousMetals(DataMixin, FormView):
         return self.get_context_precious_metals(request, context)
 
 
-def home(request):
+def about_us(request):
     data = {}
-    date = str(dt.today()).split('-')
-    date = date[2] + '/' + date[1] + '/' + date[0]
-    try:
-        soup = BeautifulSoup(requests.get(f'https://www.cbr.ru/scripts/XML_daily.asp?date_req={date}').content, 'xml')
-        data['usd'] = soup.find('CharCode', text='USD').find_next_sibling('Value').string + ' руб'
-        data['eur'] = soup.find('CharCode', text='EUR').find_next_sibling('Value').string + ' руб'
-    except AttributeError:
-        return render(request, 'core/main.html', data)
-    return render(request, 'core/main.html', data)
+    rate_now(data)
+    return render(request, 'core/about_us.html', data)
+
+
+def home(request):
+    return redirect('posts')
